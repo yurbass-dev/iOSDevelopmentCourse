@@ -44,7 +44,7 @@
     for (id obj in self.view.subviews) {
         
         if ([obj isKindOfClass:[UIButton class]]) {
-            UIButton *button = obj;
+            UIButton *button = obj;            
             button.layer.cornerRadius = CGRectGetHeight(button.frame) / 2.f;
         }
     }

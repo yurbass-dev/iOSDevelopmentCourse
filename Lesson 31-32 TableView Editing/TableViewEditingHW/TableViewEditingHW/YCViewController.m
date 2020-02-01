@@ -63,6 +63,9 @@
     self.navigationItem.title = @"Pupils";
     
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+         @{NSForegroundColorAttributeName:UIColor.whiteColor}];
 
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
                                                                                 target:self

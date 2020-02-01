@@ -263,7 +263,7 @@ static const CLLocationDistance kFarCircleDistance = 15000.0;
             annotationView.rightCalloutAccessoryView = infoButton;
         }
     }
-    else if ([annotation isKindOfClass:[YCMeetingPoint class]]) {
+    else if ([annotation isKindOfClass:[YCMeetingPoint class]]) { 
         annotationView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:MeetingPointIdentifier];
         
         if (annotationView) {

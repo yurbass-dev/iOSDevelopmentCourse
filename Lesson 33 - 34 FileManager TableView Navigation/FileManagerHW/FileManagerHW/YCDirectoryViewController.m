@@ -56,7 +56,7 @@ static const CGFloat kFileCellHeight = 60.0f;
     [super viewDidLoad];
     
     if (!self.path) {
-        self.path = @"/Users/yurbass/Documents/iOSCource";
+        self.path = @"/Users/yurbass/Documents/iOSCourse";
     }
     
     self.navigationItem.leftBarButtonItem = nil;
@@ -342,9 +342,9 @@ static const CGFloat kFileCellHeight = 60.0f;
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:contentName
                                                                              message:[NSString stringWithFormat:@"Size: %@\nDate: %@", sizeContent, dateFile]
                                                                       preferredStyle:UIAlertControllerStyleAlert];
-    
+
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
-    
+
     [alertController addAction:okAction];
     [self presentViewController:alertController animated:YES completion:nil];
 }
