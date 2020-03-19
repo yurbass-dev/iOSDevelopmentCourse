@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YCGroup : NSObject
 
-@property (copy, nonatomic) NSArray *students;
+@property (strong, nonatomic) NSArray *students;
 
 @end
 

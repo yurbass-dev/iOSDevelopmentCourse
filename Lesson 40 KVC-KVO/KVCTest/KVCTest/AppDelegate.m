@@ -16,6 +16,7 @@ static void *YCGroupStudentsContext = &YCGroupStudentsContext;
 @interface AppDelegate ()
 
 @property (strong, nonatomic) YCStudent *student;
+@property (strong, nonatomic) NSArray *groups;
 
 @end
 
@@ -47,6 +48,8 @@ static void *YCGroupStudentsContext = &YCGroupStudentsContext;
 //
 //    [self.student changeName];
     
+    
+    
     YCStudent *student1 = [YCStudent new];
     student1.name = @"Alex";
     student1.age = 20;
@@ -58,28 +61,70 @@ static void *YCGroupStudentsContext = &YCGroupStudentsContext;
     YCStudent *student3 = [YCStudent new];
     student3.name = @"Jack";
     student3.age = 22;
-    
+
     YCStudent *student4 = [YCStudent new];
     student4.name = @"Vova";
     student4.age = 28;
-    
+
     YCGroup *group1 = [YCGroup new];
     group1.students = @[student1, student2, student3, student4];
+//
+//    /*
+//    NSLog(@"%@", group1.students);
+//
+//    NSMutableArray *array = [group1 mutableArrayValueForKey:@"students"];
+//
+//    [array removeLastObject];
+//
+//    NSLog(@"%@", array);
+//    NSLog(@"%@", group1.students);
+//     */
+//
+//    self.student = student1;
+//
+//    NSLog(@"name = %@", [self valueForKeyPath:@"student.name"]);
+//
+//    NSString *studentName = @"Alex111";
+//    NSError *error = nil;
+//
+//    if (! [self.student validateValue:&studentName forKey:@"name" error:&error]) {
+//        NSLog(@"%@", error);
+//
     
-    /*
-    NSLog(@"%@", group1.students);
-    
-    NSMutableArray *array = [group1 mutableArrayValueForKey:@"students"];
+        
+    YCStudent *student5 = [YCStudent new];
+    student5.name = @"Vasya";
+    student5.age = 18;
 
-    [array removeLastObject];
+    YCStudent *student6 = [YCStudent new];
+    student6.name = @"Kolya";
+    student6.age = 24;
 
-    NSLog(@"%@", array);
-    NSLog(@"%@", group1.students);
-     */
+    YCGroup *group2 = [YCGroup new];
+    group2.students = @[student5, student6];
     
-    self.student = student1;
+    self.groups = @[group1, group2];
     
-    NSLog(@"name = %@", [self valueForKeyPath:@"student.name"]);
+    NSLog(@"groups count = %@", [self valueForKeyPath:@"groups.@count"]);
+    
+    NSArray *allStudents = [self valueForKeyPath:@"groups.@distinctUnionOfArrays.students"];
+    
+    NSLog(@"allStudents = %@", allStudents);
+    
+    NSNumber *minAge = [allStudents valueForKeyPath:@"@min.age"];
+    NSNumber *maxAge = [allStudents valueForKeyPath:@"@max.age"];
+    NSNumber *sumAge = [allStudents valueForKeyPath:@"@sum.age"];
+    NSNumber *avgAge = [allStudents valueForKeyPath:@"@avg.age"];
+    
+    NSLog(@"minAge = %@", minAge);
+    NSLog(@"maxAge = %@", maxAge);
+    NSLog(@"sumAge = %@", sumAge);
+    NSLog(@"avgAge = %@", avgAge);
+    
+    NSArray *allNames = [allStudents valueForKeyPath:@"@distinctUnionOfObjects.name"];
+    
+    NSLog(@"allNames = %@", allNames);
+    
     
     return YES;
 }
